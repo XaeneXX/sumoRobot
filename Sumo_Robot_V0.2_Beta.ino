@@ -104,33 +104,33 @@ void reverse(int speed, int moveTime)
 void RF(int speed)
 {
   analogWrite(motor1PinF, speed);
-  digitalWrite(motor1PinR, 0);   
+  analogWrite(motor1PinR, 0);   
 }
 
 void RR(int speed)
 {
-  digitalWrite(motor1PinF, 0);
-  digitalWrite(motor1PinR, speed);   
+  analogWrite(motor1PinF, 0);
+  analogWrite(motor1PinR, speed);   
 }
 
 void LF(int speed)
 {
   analogWrite(motor2PinF, speed);
-  digitalWrite(motor2PinR, 0);   
+  analogWrite(motor2PinR, 0);   
 }
 
 void LR(int speed)
 {
-  digitalWrite(motor2PinF, 0);
-  digitalWrite(motor2PinR, speed);   
+  analogWrite(motor2PinF, 0);
+  analogWrite(motor2PinR, speed);   
 }
 
 void stop()
 {
-  digitalWrite(motor1PinF, 0);
-  digitalWrite(motor1PinR, 0); 
-  digitalWrite(motor2PinF, 0);
-  digitalWrite(motor2PinR, 0); 
+  analogWrite(motor1PinF, 0);
+  analogWrite(motor1PinR, 0); 
+  analogWrite(motor2PinF, 0);
+  analogWrite(motor2PinR, 0); 
 }
 
 bool RSense()
@@ -148,4 +148,5 @@ void wait(long time)
   unsigned long  currentMillis = millis();
   while(currentMillis < previousMillis + (time*1000))
     {}
+  previousMillis = currentMillis;
 }
